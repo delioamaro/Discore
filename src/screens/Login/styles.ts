@@ -29,6 +29,9 @@ export const styles = StyleSheet.create({
     textContainer: {
         width: "90%",
         paddingBottom: 40,
+    },
+    buttonContainer: {
+        width: '50%',
     }
 })
 

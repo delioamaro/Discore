@@ -6,11 +6,11 @@ type Props = TextInputProps & {
     icon?: React.ReactNode;    
 }
 
-export function Input({ icon, ...rest }: Props) {
+export function Input({ icon, style, ...rest }: Props) {
     return (
         <View style={styles.container}>
             {icon}
-            <TextInput style={styles.input} {...rest} />
+            <TextInput style={[styles.input, style]} {...rest} />
         </View>
     )
 }

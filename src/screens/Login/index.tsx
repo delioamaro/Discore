@@ -18,7 +18,9 @@ export function Login() {
                     <Text style={styles.title}>Senha:</Text>
                     <Input placeholder="Digite sua senha" placeholderTextColor="#8A8A8C" secureTextEntry={true}/>
                 </View>
-                <Button title="Entrar" backgroundColor="#27C6E5" textColor="#2C2C31"/>
+                <View style={styles.buttonContainer}>
+                    <Button title="Entrar" backgroundColor="#27C6E5" textColor="#2C2C31"/>
+                </View>
             </View>
         </LinearGradient>
     )

@@ -1,43 +1,23 @@
-import { View, Text, Image, TouchableOpacity } from "react-native";
-
-import { styles } from "./styles";
-import { CardAlbum } from "@/components/CardAlbum";
-import { StatusBar } from "expo-status-bar";
+import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 
 
+import { Home } from "./home";
+import { Sobre } from "./sobre"
 
-export function Home() {
-    return(
-        <View style={styles.container}>
-            <StatusBar style="light" />
-           <Text style={styles.heroTitle}>
-                <Text style={styles.blue}>Avalie </Text>
-                álbuns. {""}
-                <Text style={styles.pink}>Descubra </Text>
-                músicas. {""}
-                <Text style={styles.purple}>Viva </Text>
-                o som.
-            </Text>
-            <Text style={styles.heroText}>
-                Compartilhe suas opiniões, explore novos sons e encontre os melhores álbuns do momento!
-            </Text>
-            <Text style={styles.NovosTitle}>
-                Novos Álbuns 
-            </Text>
-            <View style={styles.albunsContainer}>
-                <CardAlbum image={require("@/assets/coisas-naturais.jpg")}/> 
-                <CardAlbum image={require("@/assets/coisas-naturais.jpg")}/> 
-                <CardAlbum image={require("@/assets/coisas-naturais.jpg")}/>
-            </View>
-            <View style={styles.albunsContainer}>
-                <CardAlbum image={require("@/assets/coisas-naturais.jpg")}/> 
-                <CardAlbum image={require("@/assets/coisas-naturais.jpg")}/> 
-                <CardAlbum image={require("@/assets/asap-rocky.jpg")}/>
-            </View>
-            <Text style={styles.NovosTitle}>
-                Mais Bem Avaliados
-            </Text>
+const Tab = createMaterialTopTabNavigator();
 
-        </View>
+export default function HomeTabs() {
+    return (
+        <Tab.Navigator
+        screenOptions={{
+                tabBarStyle: {backgroundColor: "#010101"},
+                tabBarIndicatorStyle: {backgroundColor: "#9333ea"},
+                tabBarLabelStyle: {fontWeight: "bold"},
+                tabBarActiveTintColor: "#F2F2F4",
+                tabBarInactiveTintColor: "#6B7280",
+        }}>
+            <Tab.Screen name="Álbum" component={Home}/>
+            <Tab.Screen name="Sobre" component={Sobre}/>
+        </Tab.Navigator>
     )
 }
