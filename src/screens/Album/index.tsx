@@ -1,12 +1,21 @@
 import { View, Text, Image, ScrollView } from "react-native";
 import { RouteProp, useRoute } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
 
 import { styles } from "./styles";
 import { Faixas } from "@/components/Faixas";
 import { Avaliacao } from "@/components/Avaliacao";
 
+type RootStackParamList = {
+  album: undefined;
+  letra: undefined; 
+};
+
 
 export function Album(){
+    const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+
     return (
         <ScrollView style={styles.container}>
             <View style={styles.albumContainer}>
@@ -26,10 +35,10 @@ export function Album(){
             </View>
             <View style={styles.albumInfo}>  
                 <Text style={styles.titleFaixa}>Faixas:</Text>
-                <Faixas title={"Coisas Naturais"} duration={"4:00"} />
-                <Faixas title={"Coisas Naturais"} duration={"4:00"} />
-                <Faixas title={"Coisas Naturais"} duration={"4:00"} />
-                <Faixas title={"Coisas Naturais"} duration={"4:00"} />
+                <Faixas title={"Coisas Naturais"} duration={"4:00"} onPress={() => navigation.navigate("letra")} />
+                <Faixas title={"Coisas Naturais"} duration={"4:00"} onPress={() => navigation.navigate("letra")}/>
+                <Faixas title={"Coisas Naturais"} duration={"4:00"} onPress={() => navigation.navigate("letra")}/>
+                <Faixas title={"Coisas Naturais"} duration={"4:00"} onPress={() => navigation.navigate("letra")}/>
             </View>
             <View style={styles.albumInfo}>
                 <Text style={styles.titleFaixa}>Avaliações:</Text>

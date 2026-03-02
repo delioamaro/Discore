@@ -9,12 +9,12 @@ type Props = TouchableOpacityProps & {
     duration: string;
 }
 
-export function Faixas({ title, duration }: Props) { 
+export function Faixas({ title, duration, ...rest }: Props) { 
     return (
         <View style={styles.container}>
             <Text style={styles.title}>{title}</Text>
             <Text style={styles.duration}>{duration}</Text>
-            <TouchableOpacity style={styles.buttonContainer}>
+            <TouchableOpacity style={styles.buttonContainer} {...rest}>
                 <Text style={styles.buttonLetra}>Letra</Text>
                 <Quote size={12} color="#F2F2F4"/>
             </TouchableOpacity>

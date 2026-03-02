@@ -18,6 +18,7 @@ import { Album } from "@/screens/Album";
 
 
 
+
 const Tab = createBottomTabNavigator();
 
 export  default function TabRoutes() {
