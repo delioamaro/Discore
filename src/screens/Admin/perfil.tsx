@@ -10,8 +10,13 @@ import { CardAlbum } from "@/components/CardAlbum";
 import { MinhasAvaliacoes } from "@/components/MinhasAvaliacoes";
 
 
+type RootStackParamList = {
+  app: undefined;
+  album: undefined; 
+};
 
 export function Perfil() {
+    const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
     return (
         <ScrollView style={styles.container}>
             <View style={styles.perfilContainer}>
@@ -27,7 +32,7 @@ export function Perfil() {
             <View style={styles.ultimosAlbuns}>
                 <Text style={styles.title}>Últimos Álbuns Avaliados:</Text> 
                 <View style={styles.albunsContainer}>
-                    <CardAlbum image={require("@/assets/coisas-naturais.jpg")}/> 
+                    <CardAlbum image={require("@/assets/coisas-naturais.jpg")} onPress={() => navigation.navigate("album")} /> 
                     <CardAlbum image={require("@/assets/coisas-naturais.jpg")}/> 
                     <CardAlbum image={require("@/assets/coisas-naturais.jpg")}/>
                 </View>

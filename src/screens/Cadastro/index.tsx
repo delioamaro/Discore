@@ -9,13 +9,12 @@ import { Button } from "@/components/Button";
 import { LinearGradient } from "expo-linear-gradient";
 
 type RootStackParamList = {
-  login: undefined;
-  app: undefined;
-  cadastro: undefined; 
+  cadastro: undefined;
+  login: undefined; 
 };
 
 
-export function Login() {
+export function Cadastro() {
     const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
     
     return (
@@ -26,14 +25,20 @@ export function Login() {
                 <View style={styles.textContainer}>
                     <Text style={styles.title}>Email:</Text>
                     <Input placeholder="Digite seu email" placeholderTextColor="#8A8A8C" keyboardType="email-address"/>
+                    <Text style={styles.title}>Nome:</Text>
+                    <Input placeholder="Digite o nome do Usuário" placeholderTextColor="#8A8A8C" secureTextEntry={true}/>
                     <Text style={styles.title}>Senha:</Text>
                     <Input placeholder="Digite sua senha" placeholderTextColor="#8A8A8C" secureTextEntry={true}/>
+                    <Text style={styles.title}>Confirmar Senha:</Text>
+                    <Input placeholder="Digite sua senha" placeholderTextColor="#8A8A8C" secureTextEntry={true}/>
                 </View>
-                <TouchableOpacity onPress={() => navigation.navigate("cadastro")}>
-                    <Text style={styles.criarTitle}>Criar Conta</Text>
-                </TouchableOpacity>
                 <View style={styles.buttonContainer}>
-                    <Button title="Entrar" backgroundColor="#27C6E5" textColor="#2C2C31" onPress={() => navigation.navigate("app")}/>
+                    <View style={styles.button}>
+                        <Button title="Voltar Login" backgroundColor="#E91E63" textColor="#F2F2F4" onPress={() => navigation.navigate("login")}/>
+                    </View>
+                    <View style={styles.button}>
+                        <Button title="Cadastrar" backgroundColor="#27C6E5" textColor="#2C2C31" onPress={() => navigation.navigate("login")}/>
+                    </View>
                 </View>
             </View>
         </LinearGradient>

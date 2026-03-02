@@ -3,6 +3,9 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 
 import { Home } from "./home";
 import { Sobre } from "./sobre"
+import { useNavigation } from "@react-navigation/native";
+
+
 
 const Tab = createMaterialTopTabNavigator();
 

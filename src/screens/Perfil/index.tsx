@@ -2,17 +2,21 @@ import { View, Text, Image, ScrollView } from "react-native";
 import { CircleUserRound } from "lucide-react-native"
 import { StackNavigationProp } from "@react-navigation/stack";
 import { useNavigation } from "@react-navigation/native";
-import { HomeStackParamList } from "@/screens/Home/home.routes";
-import { dataProps } from "@/components/Carrossel"; 
+
+
 
 import { styles } from "./styles";
 import { CardAlbum } from "@/components/CardAlbum";
 import { MinhasAvaliacoes } from "@/components/MinhasAvaliacoes";
 
 
-type NavigationProps = StackNavigationProp<HomeStackParamList, "HomeTabs">;
+type RootStackParamList = {
+  app: undefined;
+  album: undefined; 
+};
 
 export function Perfil() {
+    const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
     return (
         <ScrollView style={styles.container}>
             <View style={styles.perfilContainer}>
@@ -28,7 +32,7 @@ export function Perfil() {
             <View style={styles.ultimosAlbuns}>
                 <Text style={styles.title}>Últimos Álbuns Avaliados:</Text> 
                 <View style={styles.albunsContainer}>
-                    <CardAlbum image={require("@/assets/coisas-naturais.jpg")} onPress={() => navigation.navigate("AlbumDetalhes")}/> 
+                    <CardAlbum image={require("@/assets/coisas-naturais.jpg")} onPress={() => navigation.navigate("album")} /> 
                     <CardAlbum image={require("@/assets/coisas-naturais.jpg")}/> 
                     <CardAlbum image={require("@/assets/coisas-naturais.jpg")}/>
                 </View>

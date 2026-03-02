@@ -28,17 +28,17 @@ export const styles = StyleSheet.create({
     },
     textContainer: {
         width: "90%",
-        paddingBottom: 20,
+        paddingBottom: 40,
     },
     buttonContainer: {
-        marginTop: 40,
-        width: '50%',
+        flexDirection: "row",
+        paddingTop: 20,
+        paddingBottom: 40,
+        alignSelf: 'center',
     },
-    criarTitle: {
-        color: "#F2F2F4",
-        fontSize: 16,
-        fontWeight: "300",
-        textDecorationLine: 'underline'
+    button: {
+        width: '50%',
+        paddingHorizontal: 16,
     }
 })
 

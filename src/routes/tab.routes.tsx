@@ -6,6 +6,7 @@ import { CirclePlus } from "lucide-react-native";
 import { CircleUserRound } from "lucide-react-native"
 import { LogOut } from "lucide-react-native";
 import { TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 
 import { Pesquisar } from "@/screens/Pesquisar";
@@ -13,12 +14,14 @@ import { Avaliar } from "@/screens/Avaliar";
 import { Perfil } from "@/screens/Perfil";
 import AdminTabs from "@/screens/Admin";
 import HomeTabs from "@/screens/Home";
+import { Album } from "@/screens/Album";
 
 
 
 const Tab = createBottomTabNavigator();
 
 export  default function TabRoutes() {
+  const navigation = useNavigation<any>();
   return (
     <Tab.Navigator screenOptions={{headerShown: true, headerTitleAlign: "center", headerStyle: {backgroundColor: "#010101", borderBottomWidth: 2, borderBottomColor: "#2C2C31"},
       headerTitle: () => (
@@ -28,7 +31,7 @@ export  default function TabRoutes() {
         />
       ),
       headerRight: () => (
-      <TouchableOpacity onPress={() => console.log("Logout")} style={{marginRight: 16}}>
+      <TouchableOpacity onPress={() => navigation.replace("login")} style={{marginRight: 16}}>
         <LogOut size={24} color="#6d6d6d"/>    
       </TouchableOpacity>
       ),
@@ -59,5 +62,6 @@ export  default function TabRoutes() {
       tabBarLabel: 'Perfil'
       }}/>
     </Tab.Navigator>
+    
   );
 }

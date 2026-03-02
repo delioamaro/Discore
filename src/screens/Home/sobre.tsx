@@ -1,4 +1,4 @@
-import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
+import { View, Text, Image, TouchableOpacity, ScrollView, Linking } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import MaskedView from "@react-native-masked-view/masked-view";
 
@@ -13,6 +13,10 @@ import { styles } from "./styles";
 
 
 export function Sobre() {
+    const openLink = async (url: string) => { try { await Linking.openURL(url); } catch (error) {
+    console.error("Não foi possível abrir o link:", error);}};
+    
+    const sendEmail = () => {Linking.openURL('mailto:discore@email.com?subject=Suporte Discore&body=Olá!'); };
     return (
         <ScrollView style={styles.container}>
             <View style={styles.comoAvaliar}>
@@ -94,15 +98,15 @@ export function Sobre() {
             <View style={styles.redesContainer}>
                 <Text style={styles.title2}>Acompanhe atualizações nas nossas redes sociais</Text>
                 <View style={styles.redesSociais}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => openLink('https://instagram.com')}>
                         <Instagram size={40} color="#F2F2F4"/> 
                     </TouchableOpacity>
                     <TouchableOpacity>
-                        <Twitter size={40} color="#F2F2F4"/> 
+                        <Twitter size={40} color="#F2F2F4" onPress={() => openLink('https://twitter.com')}/> 
                     </TouchableOpacity>
                 </View>
                 <Text style={styles.title}>Ou nos envie um email:</Text>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={sendEmail}>
                     <Text style={styles.email}>discore@email.com</Text>
                 </TouchableOpacity>
             </View>
